@@ -133,7 +133,8 @@ header {
 }
 
 .my-account:hover,
-.board-button:hover {
+.board-button:hover,
+.save-prop-button {
     background-color: var(--pre-blue);
     color: var(--text-color-dark);
 }
@@ -181,6 +182,7 @@ input[type="date"] {
         flex-direction: column;
         gap: 20px;
     }
+
     .left-block {
         width: 30%;
         max-width: none;
@@ -247,23 +249,28 @@ input[type="date"] {
     border-radius: 50%;
     background-color: var(--green);
 }
-.medium{
+
+.medium {
     background-color: var(--yellow);
 }
-.hard{
+
+.hard {
     background-color: var(--red);
 }
+
 .tags {
     display: flex;
     align-items: center;
     gap: 5px;
     margin-bottom: 10px;
 }
-.pre-board{
+
+.pre-board {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .comment-text {
     margin-left: 3px;
     font-weight: 500;
@@ -288,7 +295,7 @@ input[type="date"] {
     position: relative;
 }
 
-.task-buttons{
+.task-buttons {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -296,9 +303,11 @@ input[type="date"] {
 
     right: 10px;
 }
-.task-buttons > img{
+
+.task-buttons>img {
     width: 19px;
 }
+
 .task-name {
     font-size: 18px;
     line-height: 27px;
@@ -316,12 +325,13 @@ input[type="date"] {
     background-color: var(--todo-block-color);
     border-radius: 5px;
 }
-.load-more-button{
+
+.load-more-button {
     width: 312px;
     height: 48px;
 
     background: var(--loader-button-color);
-    
+
     border-radius: 20px;
     border-color: var(--todo-block-color);
 
@@ -333,7 +343,7 @@ input[type="date"] {
     font-size: 18px;
     line-height: 27px;
 
-    color:var(--todo-block-color);
+    color: var(--todo-block-color);
 }
 
 .other-info {
@@ -358,13 +368,13 @@ input[type="date"] {
     line-height: 18px;
 }
 
-.task-date{
+.task-date {
     font-style: normal;
-font-weight: 400;
-font-size: 12px;
-line-height: 18px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
 
-color: #000000;
+    color: #000000;
 }
 
 .todo-list,
@@ -393,7 +403,7 @@ color: #000000;
     font-size: 0.8em;
 }
 
-.footer{
+.footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -401,12 +411,12 @@ color: #000000;
     color: var(--footer-text-color);
 }
 
-.task-info{
+.task-info {
     max-width: 923px;
     height: 830px;
 
     position: relative;
-    
+
     overflow: hidden;
 
     padding: 24px 25px;
@@ -419,10 +429,12 @@ color: #000000;
     flex-direction: column;
     flex-wrap: wrap;
 }
-.task-info-description{
+
+.task-info-description {
     max-width: 490px;
 }
-.task-info-description > p{
+
+.task-info-description>p {
     max-width: 482px;
     max-height: 185px;
 
@@ -432,14 +444,16 @@ color: #000000;
     border-radius: 5px;
 
 }
-.task-info-comments{
+
+.task-info-comments {
     display: flex;
     flex-direction: column;
     gap: 15px;
 
     max-height: 335px;
 }
-.comment{
+
+.comment {
     display: flex;
     flex-direction: column;
     padding: 24px 25px;
@@ -449,14 +463,15 @@ color: #000000;
     max-width: 482px;
     max-height: 185px;
 }
-.comment-author-info{
+
+.comment-author-info {
     display: flex;
     justify-content: space-between;
 
     margin-bottom: 10px;
 }
 
-.comment-author{
+.comment-author {
     color: var(--grey);
 
     font-style: italic;
@@ -465,7 +480,7 @@ color: #000000;
     line-height: 18px;
 }
 
-.comment-date{
+.comment-date {
     font-style: italic;
     font-weight: 400;
     font-size: 0.7em;
@@ -475,7 +490,7 @@ color: #000000;
     color: var(--grey);
 }
 
-.add-comment-button{
+.add-comment-button {
     width: 111px;
     height: 37px;
 
@@ -484,13 +499,13 @@ color: #000000;
     box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
     border-radius: 4px;
 
-    color:#fff;
- 
+    color: #fff;
+
 
     text-align: center;
 }
 
-.add-comment-text{
+.add-comment-text {
     max-height: 46px;
     max-width: 482px;
     border-radius: 15px;
@@ -500,12 +515,12 @@ color: #000000;
     border: none
 }
 
-.add-comment-button:hover{
+.add-comment-button:hover {
     background-color: var(--pre-blue);
     color: var(--text-color-dark);
 }
 
-.task-info-author{
+.task-info-author {
     position: relative;
     max-width: 293px;
     max-height: 185px;
@@ -517,11 +532,13 @@ color: #000000;
 
 
 }
-.task-info-tags{
+
+.task-info-tags {
     display: flex;
     gap: 20px;
 }
-.task-info-author-img{
+
+.task-info-author-img {
     position: absolute;
 
     top: -20px;
@@ -531,24 +548,29 @@ color: #000000;
 }
 
 @media only screen and (max-width: 1040px) {
-    .task-info{
+    .task-info {
         height: 1000px;
         gap: 15px;
     }
-    .task-info-author{
+
+    .task-info-author {
         order: 0;
         max-width: 100%;
     }
-    .task-info-description{
+
+    .task-info-description {
         order: 1;
     }
-    .task-info-description > p{
+
+    .task-info-description>p {
         max-height: 600px;
     }
-    .task-info-comments{
+
+    .task-info-comments {
         order: 2;
     }
-    .comment{
+
+    .comment {
         max-width: 100%;
         max-height: 600px;
     }
@@ -556,16 +578,159 @@ color: #000000;
 
 @media only screen and (max-width: 530px) {
 
-    .task-info-tags{
+    .task-info-tags {
         flex-direction: column;
         gap: 5px;
     }
-    .task-info-author{
+
+    .task-info-author {
         max-height: 240px;
     }
-    .task-info{
+
+    .task-info {
         flex-wrap: nowrap;
         height: 1750px;
     }
 
+}
+
+.user-block {
+    width: 100%;
+    max-height: 736px;
+    height: 780px;
+    background: #EEF2F5;
+    border-radius: 10px;
+
+    padding: 20px 25px;
+}
+
+.user-info {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    margin-left: 190px;
+
+    position: relative;
+
+    margin-bottom: 60px;
+}
+
+.user-info>img {
+    width: 164px;
+    position: absolute;
+    top: -30px;
+    left: -170px;
+}
+
+.upload-profile-button {
+
+    width: 241px;
+    height: 34px;
+
+    background: #00569E;
+    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
+    border-radius: 4px;
+
+    color: #fff;
+    border-color: #00569E;
+}
+
+.personal-info {
+    height: 432px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.prop>input {
+    max-width: 385px;
+    width: 385px;
+    height: 46px;
+
+    background: #FFFFFF;
+    border-radius: 5px;
+    border: none;
+
+    padding: 10px 20px;
+}
+
+.reset-prop-button {
+    width: 136px;
+    height: 46px;
+
+    background: #FFFFFF;
+    border: 2px solid #00569E;
+    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
+    border-radius: 4px;
+
+    color: var(--text-color-blue);
+}
+
+.save-prop-button {
+    width: 136px;
+    height: 46px;
+
+    background: #00569E;
+    border: 2px solid #00569E;
+    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
+    border-radius: 4px;
+
+    color: #fff;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.profile > h3{
+    font-size: 1em;
+}
+.profile > p{
+    font-size: 0.9em;
+}
+@media only screen and (max-width: 1110px) {
+    .user-block{
+        max-height: 1000px;
+        height: 900px;
+    }
+    .personal-info {
+        flex-wrap: nowrap;
+    }
+
+    .buttons {
+        justify-content: center;
+        margin-top: 40px;
+    }
+    .user-info{
+        display: flex;
+        flex-direction: column;
+        margin-left:0;
+
+    }
+    .user-block >h3 {
+        text-align: center;
+    }
+    .user-info > img{
+        position: static;
+    }
+    .personal-info{
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+@media only screen and (max-width: 625px) {
+    .prop>input {
+        max-width:255px;
+        width: 255px;
+    }
+    
 }
