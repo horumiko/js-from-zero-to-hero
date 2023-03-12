@@ -249,7 +249,7 @@ const tasks = [
 const STATUSES_DICT = {
   TO_DO: "To Do",
   IN_PROGRESS: "In progress",
-  COMPLETED: "Completed",
+  COMPLETED: "Done",
 };
 
 const PRIORITIES_DICT = {
