@@ -82,17 +82,6 @@ const tasks = [
     comments: []
   },
   {
-    id: '1',
-    name: 'Create ios app',
-    description: 'swift',
-    createdAt: new Date('2023-03-09T13:20:00'),
-    assignee: 'Alena',
-    status: 'To Do',
-    priority: 'High',
-    isPrivate: true,
-    comments: []
-  },
-  {
     id: '8',
     name: 'Create tg chat',
     description: 'py + telegramapi',
