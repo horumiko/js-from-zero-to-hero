@@ -1,24 +1,15 @@
-const arr = [1, 2, 3, 4, 6, 7, 8, 9, 10];
-const result = arr.map((n, i) => ({
-  value: n ** 2,
-  title: "Task" + n,
-  order: i
-}));
-
-//const result = arr.filter((n, i) => n > 5);
-
-const result2 = [...result].sort();
-
-const result3 = result2.reduce((sum, cur) => {
-
-  const {value, title, order} = cur;
-
-  return {
-    value: sum.value + value,
-    title: sum.title + title,
-    order: sum.order + order
+function maxProfit(prices) {
+  if (!Array.isArray(prices) || prices.some(isNaN)) {
+    throw new Error('Input must be an array of numbers');
   }
-});
+  
+  let maxProfit = 0;
+  for (let i = 0; i < prices.length - 1; i++) {
+    if (prices[i] < prices[i + 1]) {
+      maxProfit += prices[i + 1] - prices[i];
+    }
+  }
+  return maxProfit;
+}
 
-
-console.log(result3, result2, result);
+console.log(maxProfit([7,1,5,3,6,4]))
