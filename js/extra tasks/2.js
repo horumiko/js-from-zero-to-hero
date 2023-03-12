@@ -1,0 +1,15 @@
+function maxProfit(prices) {
+  if (!Array.isArray(prices) || prices.some(isNaN)) {
+    throw new Error('Input must be an array of numbers');
+  }
+  
+  let maxProfit = 0;
+  for (let i = 0; i < prices.length - 1; i++) {
+    if (prices[i] < prices[i + 1]) {
+      maxProfit += prices[i + 1] - prices[i];
+    }
+  }
+  return maxProfit;
+}
+
+console.log(maxProfit([7,1,5,3,6,4]))
