@@ -571,5 +571,3 @@ const taskModule = (function () {
     changeUser,
   };
 })();
-
-console.log(validateTask(tasks[0]));
