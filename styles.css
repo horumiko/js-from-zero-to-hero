@@ -102,7 +102,7 @@ header {
     }
 }
 
-.main-block {
+.main {
     display: flex;
     flex-wrap: wrap;
     margin: 1%;

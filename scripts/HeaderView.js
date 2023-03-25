@@ -10,7 +10,6 @@ export default class HeaderView {
         this.user = user;
     }
 
-
     display(params) {
         // Создаем основные элементы
         const logo = document.createElement('div');
@@ -88,7 +87,7 @@ export default class HeaderView {
         container.appendChild(logo);
         container.appendChild(functionality);
 
-        document.body.appendChild(container);
+        document.body.insertBefore(container, document.querySelector('main'));
 
     }
 }
