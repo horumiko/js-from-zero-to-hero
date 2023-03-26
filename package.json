@@ -1,0 +1,19 @@
+{
+  "name": "js-from-zero-to-hero",
+  "version": "1.0.0",
+  "description": "#Figma  https://www.figma.com/file/vTc8r0zeG7AaN2qAK0Qc2H/Task-Manager?node-id=108%3A427&t=14FUUzSrm1A20ks3-1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/horumiko/js-from-zero-to-hero.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/horumiko/js-from-zero-to-hero/issues"
+  },
+  "homepage": "https://github.com/horumiko/js-from-zero-to-hero#readme"
+}

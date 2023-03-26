@@ -15,7 +15,7 @@ class Node {
       if (i && i > this.length - 1) {
         return false;
       }
-  
+      
       const newNode = new Node(value);
   
       if (!i) {
