@@ -102,7 +102,7 @@ header {
     }
 }
 
-.main {
+#main {
     display: flex;
     flex-wrap: wrap;
     margin: 1%;
@@ -155,8 +155,7 @@ header {
 }
 
 .right-block {
-    width: 100%;
-    max-width: calc(100vw - 240px);
+    width: 1100px;
     padding: 2%;
     background-color: #fff;
 }
@@ -198,11 +197,14 @@ input[type="date"] {
 .right-block {
     display: flex;
     flex-direction: column;
+    max-width: 1195px;
 }
 
 .info-block {
     display: flex;
     justify-content: space-between;
+
+
 }
 
 .add-task-button {

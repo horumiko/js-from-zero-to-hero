@@ -6,7 +6,7 @@ const tasks = [
         createdAt: new Date('2023-03-09T23:00:00'),
         assignee: 'Ivan',
         status: 'To Do',
-        priority: 'Me',
+        priority: 'Medium',
         isPrivate: false,
         comments: []
     },
