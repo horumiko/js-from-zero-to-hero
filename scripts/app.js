@@ -3,6 +3,7 @@ import HeaderView from "./HeaderView.js";
 import TaskFeedView from "./TaskFeedView.js";
 import FilterView from "./FilterView.js";
 import TaskView from "./TaskView.js";
+import FooterView from "./FooterView.js";
 import tasks  from "./db.js";
 
 const taskCollection = new TaskCollection(tasks);
@@ -10,11 +11,10 @@ const headerView = new HeaderView('header');
 const filterView = new FilterView('main');
 const taskFeedView = new TaskFeedView('main');
 const taskView = new TaskView('main');
-
+const footerView = new FooterView('main');
 
 function setCurrentUser(user) {
     headerView.setUser(user);
-    header.display();
 }
 
 function addTask(name, description, priority, assignee, status, isPrivate) {
@@ -40,12 +40,14 @@ function showTask(id) {
     taskView.display(id);
 }
 
-headerView.setUser("Guest")
+setCurrentUser("Alex")
 headerView.display()
 
 filterView.display();
 
 taskFeedView.display(taskCollection.tasks);
+
+footerView.display();
 
 //taskView.display(taskCollection.tasks[2])
 

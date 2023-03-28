@@ -12,14 +12,18 @@ const PRIORITIES_DICT = {
 };
 
 export default class TaskCollection {
-    _user = 'Guest';
-
     constructor(tasks) {
         this._tasks = tasks;
     }
 
     get tasks() {
-        return this._tasks;
+        const taskForUser = this._tasks.filter(
+            (task) => {
+                return task.assignee.includes(localStorage.getItem('user')) || task.isPrivate === false;
+            }
+        );
+        
+        return taskForUser;
     }
 
     get user() {

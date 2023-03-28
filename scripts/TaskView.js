@@ -22,7 +22,7 @@ export default class TaskView {
         }
 
         const container = document.querySelector(this.id);
-
+        document.querySelector('right-block').remove();
         const rightBlock = document.createElement('div');
         rightBlock.classList.add('right-block');
 
