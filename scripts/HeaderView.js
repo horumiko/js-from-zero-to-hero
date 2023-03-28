@@ -3,11 +3,11 @@ const srcLogo = '../assets/Logo.svg'
 export default class HeaderView {
     constructor(containerId) {
         this.id = containerId;
-        this.username = "Guest"
+        localStorage.setItem('user', 'Guest');
     }
 
     setUser(user) {
-        this.user = user;
+        localStorage.setItem('user', user);
     }
 
     display(params) {
@@ -59,7 +59,7 @@ export default class HeaderView {
         usernameLink.href = '#';
 
         const username = document.createElement('h5');
-        username.textContent = this.user;
+        username.textContent = localStorage.getItem('user') || 'Guest';
         username.classList.add('.user__name');
 
         // Добавляем элементы в родительские элементы
