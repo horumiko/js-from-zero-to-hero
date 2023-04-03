@@ -1,9 +1,11 @@
-import TaskCollection from "./TaskCollection.js";
-import HeaderView from "./HeaderView.js";
-import TaskFeedView from "./TaskFeedView.js";
-import FilterView from "./FilterView.js";
-import TaskView from "./TaskView.js";
-import FooterView from "./FooterView.js";
+import TaskCollection from "./Modals/TaskCollection.js";
+import UserCollection from "./Modals/UserCollection.js";
+import HeaderView from "./Views/HeaderView.js";
+import TaskFeedView from "./Views/TaskFeedView.js";
+import FilterView from "./Views/FilterView.js";
+import TaskView from "./Views/TaskView.js";
+import FooterView from "./Views/FooterView.js";
+
 import tasks  from "./db.js";
 
 const taskCollection = new TaskCollection(tasks);
@@ -40,7 +42,7 @@ function showTask(id) {
     taskView.display(id);
 }
 
-setCurrentUser("Alex")
+//setCurrentUser("Alex")
 headerView.display()
 
 filterView.display();

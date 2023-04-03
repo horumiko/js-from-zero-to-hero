@@ -3,7 +3,7 @@ const srcLogo = '../assets/Logo.svg'
 export default class HeaderView {
     constructor(containerId) {
         this.id = containerId;
-        localStorage.setItem('user', 'Guest');
+        console.log(localStorage.getItem('user'));
     }
 
     setUser(user) {

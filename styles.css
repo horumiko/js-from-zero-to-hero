@@ -103,8 +103,8 @@ header {
 }
 
 #main {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
     margin: 1%;
 }
 
@@ -155,9 +155,11 @@ header {
 }
 
 .right-block {
-    width: 1100px;
     padding: 2%;
     background-color: #fff;
+
+    display: flex;
+    justify-content: center;
 }
 
 .date-filter {
@@ -197,7 +199,6 @@ input[type="date"] {
 .right-block {
     display: flex;
     flex-direction: column;
-    max-width: 1195px;
 }
 
 .info-block {
@@ -231,9 +232,9 @@ input[type="date"] {
 }
 
 .board {
-    display: flex;
+    display: grid;
+    grid-template-columns: 0.3fr 0.3fr 0.3fr;
     justify-content: space-between;
-
     padding-top: 21px;
 }
 
