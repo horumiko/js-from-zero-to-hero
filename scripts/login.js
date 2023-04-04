@@ -23,11 +23,13 @@ form.addEventListener('submit', function(e) {
 
     const username = userCollection.loginUser(loginInput.value, passwordInput.value);
 
+    console.log(username);
+
     if(typeof(username) == "undefined"){
         loginInput.style.borderColor = '#FF2473'; // меняем цвет border на красный
         error.innerHTML = 'Login/Password is not correct'; // выводим сообщение об ошибке
     } else{
-        localStorage.setItem('user', username);
+        localStorage.setItem('user', JSON.stringify(username));
         window.location.href = 'index.html';
     }
 });

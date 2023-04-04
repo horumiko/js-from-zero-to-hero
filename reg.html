@@ -10,13 +10,13 @@
 <body>
     <header class="header">
         <div class="logo">
-            <a href="#"><img src="./assets/Logo.svg" alt="Логотип"></a>
+            <a href="./index.html"><img src="./assets/Logo.svg" alt="Логотип"></a>
         </div>
         <div class="functionality">
             <div class="user">
                 <button class="notification"><i class="fas fa-bell fa-lg"></i></button>
                 <button class="questions"><i class="fas fa-question fa-lg"></i></button>
-                <a href="#">Sign In</a>
+                <a href="./login.html">Sign In</a>
             </div>
         </div>
     </header>
@@ -36,21 +36,22 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="confirm-password">Подтверждение пароля:</label>
+                <label for="confirm-password">Confirm Password:</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
                 <span class="error-message"></span>
               </div>
               <div class="form-group">
-                <label for="name">Имя пользователя:</label>
+                <label for="name">Username:</label>
                 <input type="text" id="username" name="username" maxlength="100" required>
+                <span class="error-message-username"></span>
               </div>
               <div class="form-group">
-                <label for="avatar">Аватар пользователя:</label>
+                <label for="avatar">Avatar:</label>
                 <select id="avatar" name="avatar">
-                  <option value="">Выберите аватар</option>
-                  <option value="avatar1.png" selected>Аватар 1</option>
-                  <option value="avatar2.png">Аватар 2</option>
-                  <option value="avatar3.png">Аватар 3</option>
+                  <option value="./assets/avatar1.png" selected>Nusha</option>
+                  <option value="./assets/avatar2.png">Barash</option>
+                  <option value="./assets/avatar3.png">Krosh</option>
+                  <option value="./assets/avatar4.png">Karych</option>
                 </select>
               </div>
               <button type="submit" id="register-btn" disabled>Sign Up</button>

@@ -330,23 +330,15 @@ input[type="date"] {
 }
 
 .load-more-button {
-    width: 312px;
+    width: 150px;
     height: 48px;
 
-    background: var(--loader-button-color);
-
-    border-radius: 20px;
-    border-color: var(--todo-block-color);
-
-    position: absolute;
-
-    bottom: 0;
-
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 27px;
-
-    color: var(--todo-block-color);
+    background: var(--text-color-blue);
+    border: 2px solid var(--text-color-blue);
+    box-shadow: 0px 2px 4px rgba(136, 144, 194, 0.2), 0px 5px 15px rgba(37, 44, 97, 0.15);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    color: #f1f1f1
 }
 
 .other-info {
@@ -609,7 +601,6 @@ input[type="date"] {
 
 .user-info {
     display: flex;
-    width: 100%;
     align-items: center;
 
     margin-left: 190px;

@@ -13,17 +13,15 @@ const PRIORITIES_DICT = {
 
 export default class TaskCollection {
     constructor(tasks) {
-        this._tasks = tasks;
-    }
-
-    get tasks() {
-        const taskForUser = this._tasks.filter(
+        this._tasks = tasks.filter(
             (task) => {
                 return task.assignee.includes(localStorage.getItem('user')) || task.isPrivate === false;
             }
         );
-        
-        return taskForUser;
+    }
+
+    get tasks() {
+        return this._tasks;
     }
 
     get user() {
@@ -66,7 +64,10 @@ export default class TaskCollection {
         if (!this._validateTask(task)) {
             return false;
         }
-        tasks.push(task);
+        this._tasks.push(task);
+
+        localStorage.setItem('tasks', JSON.stringify(this._tasks));
+        this._tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         return true;
     }
 
@@ -137,7 +138,7 @@ export default class TaskCollection {
 
     getPage = (skip = 0, top = 10, filterConfig = {}) => {
         const tasksArrSortDate = this.tasks.sort(
-            (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
+            (a, b) => (new Date(b.createdAt)).getTime() - (new Date(a.createdAt)).getTime(),
         );
 
         const config = { ...filterConfig };

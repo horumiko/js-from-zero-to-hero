@@ -178,7 +178,12 @@ const tasks = [
         status: 'To Do',
         priority: 'High',
         isPrivate: false,
-        comments: []
+        comments: [{
+            id: '912',
+            text: 'Будет сделано!',
+            createdAt: new Date('2023-02-12T21:00:05'),
+            author: 'Петренко Алексей',
+        }]
     },
     {
         id: '16',

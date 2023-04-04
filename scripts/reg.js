@@ -9,6 +9,7 @@ const usernameInput = document.querySelector('#username');
 const error = document.querySelector('.error-message');
 const submitBtn = document.querySelector('#register-btn');
 const avatarInput = document.querySelector('#avatar');
+const errorUsername = document.querySelector('.error-message-username')
 
 passwordToggleIcon.addEventListener('click', () => {
   if (passwordInput.type === 'password') {
@@ -62,12 +63,30 @@ loginInput.addEventListener('input', updateSubmitButton);
 passwordInput.addEventListener('input', updateSubmitButton);
 confirmPasswordInput.addEventListener('input', function() {
   if (!validatePasswordsMatch(passwordInput.value, confirmPasswordInput.value)) {
-    confirmPasswordInput.style.borderColor = '#FF2473'; // меняем цвет border на красный
+    confirmPasswordInput.style.border = '2px solid'; // меняем цвет border на красный
+    confirmPasswordInput.style.borderColor = '#FF2473';
+    passwordInput.style.border = '2px solid'; // меняем цвет border на красный
+    passwordInput.style.borderColor = '#FF2473';
     error.innerHTML = 'Passwords do not match'; // выводим сообщение об ошибке
     submitBtn.disabled = true; // делаем кнопку неактивной
   } else {
-    confirmPasswordInput.style.borderColor = ''; // убираем красную обводку у поля с подтверждением пароля
+    confirmPasswordInput.style.borderColor = ''; 
+    confirmPasswordInput.style.border = ''; 
+    passwordInput.style.border = ''; 
+    passwordInput.style.borderColor = '';
     error.innerHTML = ''; // очищаем поле с ошибкой
+    updateSubmitButton(); // обновляем состояние кнопки submit
+  }
+});
+usernameInput.addEventListener('input', function() {
+  if (!validateUsername(usernameInput.value)) {
+    usernameInput.style.border = '2px solid'; // меняем цвет border на красный
+    usernameInput.style.borderColor = '#FF2473';
+    errorUsername.innerHTML = 'Username must not exceed 100 characters and contain only letters'; // выводим сообщение об ошибке
+    submitBtn.disabled = true; // делаем кнопку неактивной
+  } else {
+    usernameInput.style.borderColor = ''; // убираем красную обводку у поля с подтверждением пароля
+    errorUsername.innerHTML = ''; // очищаем поле с ошибкой
     updateSubmitButton(); // обновляем состояние кнопки submit
   }
 });
@@ -82,3 +101,7 @@ form.addEventListener('submit', function(e) {
     
     window.location.href = 'login.html';
 });
+
+if (localStorage.getItem('user')) {
+  window.location.href = 'index.html';
+}

@@ -5,6 +5,7 @@ class User {
       this.password = password;
       this.username = username;
       this.avatar = avatar;
+      this.email = "";
     }
   }
   
@@ -22,7 +23,7 @@ class User {
       return newUser;
     }
   
-    editUser(id, newLogin, newPassword, newUsername, newAvatar) {
+    editUser(id, newLogin, newPassword, newUsername, newAvatar, newEmail) {
       const userIndex = this.users.findIndex(user => user.id === id);
   
       if (userIndex === -1) {
@@ -34,8 +35,11 @@ class User {
       user.password = newPassword ?? user.password;
       user.username = newUsername ?? user.username;
       user.avatar = newAvatar ?? user.avatar;
-  
+      user.email = newEmail ?? user.email;
+
       this.saveUsers();
+
+      localStorage.setItem('user', JSON.stringify(user))
       return user;
     }
   
@@ -58,7 +62,7 @@ class User {
       const user = users.find(user => user.login === username && user.password === password);
   
       if (user) {
-        return user.username;
+        return user;
       }
     }
   }

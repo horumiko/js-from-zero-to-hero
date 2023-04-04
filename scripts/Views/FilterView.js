@@ -10,13 +10,8 @@ export default class FilterView {
         const leftBlock = document.createElement('div');
         leftBlock.classList.add('left-block');
 
-        const myAccountButton = document.createElement('button');
-        myAccountButton.classList.add('my-account');
-        myAccountButton.innerHTML = '<i class="fa-regular fa-table-cells-large"></i>My account';
-
-        const boardButton = document.createElement('button');
-        boardButton.classList.add('board-button');
-        boardButton.innerHTML = '<i class="fa-thin fa-browser"></i>Board';
+        const rightBlock = document.createElement("div");
+        rightBlock.className = "right-block";
 
         const filtersDiv = document.createElement('div');
         filtersDiv.classList.add('filters');
@@ -38,7 +33,7 @@ export default class FilterView {
         const lowPriorityCheckbox = document.createElement('input');
         lowPriorityCheckbox.type = 'checkbox';
         lowPriorityCheckbox.name = 'priority';
-        lowPriorityCheckbox.value = 'low';
+        lowPriorityCheckbox.value = 'Low';
         lowPriorityLabel.appendChild(lowPriorityCheckbox);
         lowPriorityLabel.appendChild(document.createTextNode('Low'));
 
@@ -46,7 +41,7 @@ export default class FilterView {
         const mediumPriorityCheckbox = document.createElement('input');
         mediumPriorityCheckbox.type = 'checkbox';
         mediumPriorityCheckbox.name = 'priority';
-        mediumPriorityCheckbox.value = 'medium';
+        mediumPriorityCheckbox.value = 'Medium';
         mediumPriorityLabel.appendChild(mediumPriorityCheckbox);
         mediumPriorityLabel.appendChild(document.createTextNode('Medium'));
 
@@ -54,7 +49,7 @@ export default class FilterView {
         const hardPriorityCheckbox = document.createElement('input');
         hardPriorityCheckbox.type = 'checkbox';
         hardPriorityCheckbox.name = 'priority';
-        hardPriorityCheckbox.value = 'hard';
+        hardPriorityCheckbox.value = 'High';
         hardPriorityLabel.appendChild(hardPriorityCheckbox);
         hardPriorityLabel.appendChild(document.createTextNode('Hard'));
 
@@ -107,10 +102,9 @@ export default class FilterView {
         dateFilterDiv.appendChild(toDateInput);
         filtersDiv.appendChild(dateFilterDiv);
 
-        leftBlock.appendChild(myAccountButton);
-        leftBlock.appendChild(boardButton);
         leftBlock.appendChild(filtersDiv);
     
         container.appendChild(leftBlock);
+        container.appendChild(rightBlock)
     }
 }
