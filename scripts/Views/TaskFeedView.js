@@ -2,7 +2,9 @@ const editLogoSrc = '../assets/edit.svg';
 const deleteLogoSrc = '../assets/delete.svg';
 const lockLogoSrc = "../assets/lock.svg";
 const commentsLogoSrc =  "../assets/comments.png";
+import TaskView from "../Views/TaskView.js";
 
+const taskView = new TaskView('.right-block')
 
 export default class TaskFeedView {
     constructor(id) {
@@ -10,11 +12,7 @@ export default class TaskFeedView {
     }
 
     display(tasks) {
-        const container = document.querySelector(this.id);
-        // Создание элементов
-        const rightBlock = document.createElement("div");
-        rightBlock.className = "right-block";
-
+        const rightBlock = document.querySelector('.right-block');
         const infoBlock = document.createElement("div");
         infoBlock.className = "info-block";
 
@@ -49,10 +47,6 @@ export default class TaskFeedView {
         const todoList = document.createElement("ul");
         todoList.className = "todo-list";
 
-        const todoLoadMoreButton = document.createElement("button");
-        todoLoadMoreButton.className = "load-more-button";
-        todoLoadMoreButton.textContent = "Load more tasks";
-
         const inProgressColumn = document.createElement("div");
         inProgressColumn.className = "in-progress-column";
 
@@ -68,10 +62,6 @@ export default class TaskFeedView {
         const inProgressList = document.createElement("ul");
         inProgressList.className = "in-progress-list";
 
-        const inProgressLoadMoreButton = document.createElement("button");
-        inProgressLoadMoreButton.className = "load-more-button";
-        inProgressLoadMoreButton.textContent = "Load more tasks";
-
         const doneColumn = document.createElement("div");
         doneColumn.className = "done-column";
 
@@ -86,10 +76,6 @@ export default class TaskFeedView {
 
         const doneList = document.createElement("ul");
         doneList.className = "done-list";
-
-        const doneLoadMoreButton = document.createElement("button");
-        doneLoadMoreButton.className = "load-more-button";
-        doneLoadMoreButton.textContent = "Load more tasks";
 
 
         tasks.forEach((task) => {
@@ -125,7 +111,7 @@ export default class TaskFeedView {
             if(task.priority == "Medium"){
                 circle1.classList.add('medium')
             }
-            if(task.priority == "Hard"){
+            if(task.priority == "High"){
                 circle1.classList.add('hard')
             }
 
@@ -200,7 +186,7 @@ export default class TaskFeedView {
             const taskDateP = document.createElement("p");
             taskDateP.className = "task-date";
 
-            const date = task.createdAt;
+            const date = new Date(task.createdAt);
             const day = date.getDate().toString().padStart(2, '0'); // день месяца (01-31)
             const month = (date.getMonth() + 1).toString().padStart(2, '0'); // месяц (01-12)
             const year = date.getFullYear().toString(); // год (yyyy)
@@ -221,33 +207,38 @@ export default class TaskFeedView {
                 todoList.append(li);
               }
         
-              if (task.status === 'In Progress') {
+              if (task.status === 'In progress') {
                 inProgressList.append(li);
               }
         
               if (task.status === 'Done') {
                 doneList.append(li);
               }
+
+              li.addEventListener('click', ()=>{
+                const rightBlock = document.querySelector(".right-block"); // находим элемент, у которого нужно удалить детей
+                while (rightBlock.firstChild) {
+                    rightBlock.removeChild(rightBlock.firstChild);
+                }
+                taskView.display(task);
+                
+              })
         })
 
         preTodoBoard.appendChild(todoTitle);
         preTodoBoard.appendChild(todoPlusIcon);
         todoColumn.appendChild(preTodoBoard);
         todoColumn.appendChild(todoList);
-        todoColumn.appendChild(todoLoadMoreButton);
 
         preInProgressBoard.appendChild(inProgressTitle);
         preInProgressBoard.appendChild(inProgressPlusIcon);
         inProgressColumn.appendChild(preInProgressBoard);
         inProgressColumn.appendChild(inProgressList);
-        inProgressColumn.appendChild(inProgressLoadMoreButton);
 
         preDoneBoard.appendChild(doneTitle);
         preDoneBoard.appendChild(donePlusIcon);
         doneColumn.appendChild(preDoneBoard);
         doneColumn.appendChild(doneList);
-        doneColumn.appendChild(doneLoadMoreButton);
-
         infoBlock.appendChild(boardTitle);
         infoBlock.appendChild(tableLink);
         infoBlock.appendChild(newTaskButton);
@@ -255,11 +246,9 @@ export default class TaskFeedView {
         board.appendChild(todoColumn);
         board.appendChild(inProgressColumn);
         board.appendChild(doneColumn);
-
         rightBlock.appendChild(infoBlock);
-        rightBlock.appendChild(board);
 
-        container.appendChild(rightBlock);
+        rightBlock.appendChild(board);
 
     }
 }

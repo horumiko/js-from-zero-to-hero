@@ -11,7 +11,7 @@ export default class TaskView {
 
     display(task) {
         function getFormattedDate(d){
-            const date = d;
+            const date = new Date(d);
             const day = date.getDate().toString().padStart(2, '0'); // день месяца (01-31)
             const month = (date.getMonth() + 1).toString().padStart(2, '0'); // месяц (01-12)
             const year = date.getFullYear().toString(); // год (yyyy)
@@ -22,7 +22,6 @@ export default class TaskView {
         }
 
         const container = document.querySelector(this.id);
-        document.querySelector('right-block').remove();
         const rightBlock = document.createElement('div');
         rightBlock.classList.add('right-block');
 
@@ -45,6 +44,7 @@ export default class TaskView {
         const link2 = document.createElement('a');
         link2.className = 'back-button';
         link2.textContent = 'Back';
+        link2.href = './index.html'
 
         // Добавляем созданные элементы в div "info-block"
         infoBlock.appendChild(paragraph);
@@ -98,7 +98,22 @@ export default class TaskView {
         addCommentButton.classList.add('add-comment-button');
         addCommentButton.innerText = 'Add';
 
+        addCommentButton.addEventListener('click', () => {
+            let comment = {
+                id: '912',
+                text: addCommentInput.value,
+                createdAt: Date.now(),
+                author: JSON.parse(localStorage.getItem('user')).username,
+            };
+            task.comments.push(comment);
 
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+
+            this.display(task);
+
+        })
 
         taskComments.appendChild(taskCommentsHeader);
 

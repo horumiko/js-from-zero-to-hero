@@ -3,7 +3,6 @@ const srcLogo = '../assets/Logo.svg'
 export default class HeaderView {
     constructor(containerId) {
         this.id = containerId;
-        localStorage.setItem('user', 'Guest');
     }
 
     setUser(user) {
@@ -16,7 +15,7 @@ export default class HeaderView {
         logo.classList.add('logo');
 
         const logoLink = document.createElement('a');
-        logoLink.href = '#';
+        logoLink.href = './index.html';
 
         const logoImg = document.createElement('img');
         logoImg.src = srcLogo;
@@ -56,10 +55,10 @@ export default class HeaderView {
         questionsIcon.classList.add('fas', 'fa-question', 'fa-lg');
 
         const usernameLink = document.createElement('a');
-        usernameLink.href = '#';
+        usernameLink.href = localStorage.getItem('user') == null ? './login.html' : './user.html';
 
         const username = document.createElement('h5');
-        username.textContent = localStorage.getItem('user') || 'Guest';
+        username.textContent = localStorage.getItem('user') !== null ? JSON.parse(localStorage.getItem('user')).username : 'Sign In';
         username.classList.add('.user__name');
 
         // Добавляем элементы в родительские элементы
