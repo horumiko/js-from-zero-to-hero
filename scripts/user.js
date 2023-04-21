@@ -70,17 +70,27 @@ API.profilePage().then((user) => {
   submitBtn.addEventListener("click", () => {
     const file = fileImage.files[0]
     const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.addEventListener("load", () => {
-      const picture = reader.result
+    if (!file) {
       const data = {
         userName: fullName.value,
         password: password.value,
         retypedPassword: confirmPassword.value,
-        photo: picture.substring(23),
+        photo: user.photo,
       }
       API.editUser(user.id, JSON.stringify(data))
-    })
+    } else {
+      reader.readAsDataURL(file)
+      reader.addEventListener("load", () => {
+        const picture = reader.result
+        const data = {
+          userName: fullName.value,
+          password: password.value,
+          retypedPassword: confirmPassword.value,
+          photo: picture.substring(23),
+        }
+        API.editUser(user.id, JSON.stringify(data))
+      })
+    }
   })
 
   resetBtn.addEventListener("click", () => {

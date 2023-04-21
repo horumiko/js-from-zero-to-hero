@@ -515,8 +515,10 @@ input[type="date"] {
 
 .task-info-author {
   position: relative;
-  max-width: 293px;
-  max-height: 185px;
+
+  margin-left: auto;
+  min-width: 293px;
+  min-height: 185px;
 
   margin-top: 40px;
   padding: 24px 25px;
