@@ -1,18 +1,11 @@
-import TaskCollection from "./Modals/TaskCollection.js";
-import UserCollection from "./Modals/UserCollection.js";
-import TasksController from "./Controllers/TasksController.js";
+import TasksController from "./Controllers/TasksController.js"
 
-import tasks  from "./db.js";
+const controller = new TasksController("header", "main")
+const div = document.createElement("div")
+div.className = "lds-dual-ring"
+document.body.appendChild(div)
+controller.display().then(() => {
+  div.style.display = "none"
+})
 
-localStorage.setItem('tasks', JSON.stringify(tasks));
-
-const controller = new TasksController('header', 'main');
-
-controller.display()
-controller.addTask('Add modalV2', 'Description', 'Alex', 'To Do', 'Low', false)
-
-//setCurrentUser("Alex")
-
-
-//taskView.display(taskCollection.tasks[2])
-
+controller.addTask("Add modalV2", "Description", "Alex", "To Do", "Low", false)
